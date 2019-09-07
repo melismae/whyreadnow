@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Why Read Now`,
+    author: `Melissa Smith`,
+    description: `Critical thinking, not using those words.`,
+    siteUrl: `https://whyreadnow.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `whyreadnow`,
     },
   },
   plugins: [
@@ -63,7 +63,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        // icon: `content/assets/gatsby-icon.png`,
       },
     },
     `gatsby-plugin-offline`,
