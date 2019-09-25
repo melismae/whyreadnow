@@ -1,3 +1,3 @@
-<h1 align="center">
-Why Read Now 
-</h1>
+# Why Read Now 
+
+Gatsby, Netlify.
