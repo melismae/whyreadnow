@@ -1,8 +1,6 @@
 import Typography from "typography"
-const gray = '#666'
-const colors = ['#f4aa09', '#f45562']
-let colorKey = 0
 
+const gray = '#666'
 
 const typography = new Typography({
   baseFontSize: "18px",
