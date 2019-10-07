@@ -1,13 +1,12 @@
 ---
-path: influencing-under-the-silver-lake
+path: creating-meaning-out-of-influence-in-under-the-silver-lake
 date: 2019-10-11T21:27:15.913Z
 title: Nostalgia and influence in Under the Silver Lake
 description: >-
   Under the Silver Lake is a peculiar follow up for David Robert Mitchell, the
   director behind the chilling, strangely nostalgic horror film It Follows. But
-  when are the influences of a work more a distraction than homage? And when are
-  influences more important than the author or influencer? And is it Scotty
-  Ferguson's Vertigo nightmare? Also, motherfucking David Yow.
+  are the influences of a work more a distraction than homage? Or is a primal
+  scream to create meaning? Also, motherfucking David Yow.
 tags:
   - David Robert Mitchell
   - Under the Silver Lake
@@ -34,7 +33,9 @@ Mitchell has a fraught relationships with Los Angeles, damning the self-serving,
 
 At its core, _Under the Silver Lake_ is a total schizophrenic love of film. References everywhere: Lynch, Hitchcock, Gilliam, Huston...the list could go on. But sometimes, influences can become a distraction. A forced attempt to look smart, well-read, to say, "I've seen the right films and want you to know I know my shit without saying it."  
 
-Admittedly, I loved this about _Under the Silver Lake._ Upon first watch, I was trying to catch all the references that were turned on their heads but still reverent. But if don't know the references, and I definitely couldn't catch them all, the film may be alienating, confusing, or just simply unlikeable. On second watch, I read the film as modern noir, informative our current obsession with serial killers and true crime. We want to make sense of bigger pictures and larger mysteries. We want a challenge, something dark, and when we don't find it in an obvious way, maybe we create something out of nothing.
+Admittedly, I loved this about _Under the Silver Lake._ Upon first watch, I was trying to catch all the references that were turned on their heads but still reverent. But if don't know the references, and I definitely couldn't catch them all, the film may be alienating, confusing, or just simply unlikeable. Also, I was really high and I was convinced that the film was trying to visualize what was going on in Scotty Ferguson's catatonic state in a contemporary setting. Don't do drugs.
+
+On my second, sober watch, I read the film as modern noir, informative our current obsession with serial killers and true crime. We want to make sense of bigger pictures and larger mysteries. We want a challenge, something dark, and when we don't find it in an obvious way, maybe we create something out of nothing.
 
 When Sam goes to visit his friend, an unnamed bar buddy played by Topher Grace in Victor Heights, it was two blocks from my old house in LA. I sent a screengrab of the location to my brother who lives in my old house. And here's what he sent back. That scene, filmed probably not even two years ago, was at a place that no longer exists.
 
