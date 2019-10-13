@@ -19,3 +19,6 @@ collections:
       - { name: image, label: Thumbnail, widget: image, required: false }
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: types, label: Types, widget: list, required: false }
+      - { name: workTitle, label: Title, widget: string, required: false }
+      - { name: workAuthor, label: Author, widget: list, required: false }
+      - { name: workType, label: Type, widget: string, required: false }
