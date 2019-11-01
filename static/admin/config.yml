@@ -14,11 +14,35 @@ collections:
       - { name: path, label: Path, required: true }
       - { name: date, label: Date, widget: date, required: true }
       - { name: title, label: Title, widget: string, required: true }
-      - { name: description, label: Description, widget: text, required: true }
+      - { name: description, label: Description, widget: markdown, required: true }
       - { name: body, label: Body, widget: markdown, required: true }
       - { name: image, label: Thumbnail, widget: image, required: false }
       - { name: tags, label: Tags, widget: list, required: false }
-      - { name: types, label: Types, widget: list, required: false }
-      - { name: workTitle, label: Title, widget: string, required: false }
-      - { name: workAuthor, label: Author, widget: list, required: false }
-      - { name: workType, label: Type, widget: string, required: false }
+      - { name: parentCategory, label: Parent Category, widget: select, required: true, options: ["Book", "Film", "Music", "Art", "Design", "Performance", "Article", "Game"], default: ["Book"] }
+      - { name: subCategory, label: Sub-category, widget: list, multiple: true, allow_add: true }
+      - name: "workDetails"
+        label: "Work Details"
+        widget: "list"
+        required: true
+        fields: 
+            - { name: workTitle, label: Title, widget: string, required: true }
+            - name: "influenced"
+              label: "Influenced"
+              widget: "relation"
+              collection: "creator"
+              multiple: true
+              searchFields: ["creator.firstName", "creator.lastName", "creator.group"]
+              value: "creator.id"
+              displayFields: ["creator.firstName", "creator.lastName", "creator.group"]
+            - name: "creator" 
+              label: "Creator"
+              widget: "list"
+              required: true
+              fields:
+                  - { name: firstName, label: First Name, widget: string }
+                  - { name: lastName, label: Last Name, widget: string }
+                  - { name: group, label: Group, widget: string }
+                  - { name: role, label: Role, widget: string }
+                  - { name: id, label: ID, widget: uuid, prefix: creator, timestamp: true, hint: This widget generate an unique read-only id }
+                  - { name: primary, label: Primary, widget: boolean, default: true }
+              

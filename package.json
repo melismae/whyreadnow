@@ -8,7 +8,9 @@
     "url": "https://github.com/melismae/whyreadnow/isues"
   },
   "dependencies": {
+    "@ncwidgets/id": "^0.5.0",
     "gatsby": "^2.15.9",
+    "gatsby-cli": "^2.8.8",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-draft": "0.0.4",
     "gatsby-plugin-feed": "^2.3.11",
