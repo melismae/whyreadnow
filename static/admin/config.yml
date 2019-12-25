@@ -12,6 +12,7 @@ collections:
     create: true
     fields:
       - { name: path, label: Path, required: true }
+      - { name: uuid, label: UUID, widget: SimpleUUIDControl, required: false }
       - { name: date, label: Date, widget: date, required: true }
       - { name: title, label: Title, widget: string, required: true }
       - { name: description, label: Description, widget: markdown, required: true }
@@ -26,10 +27,12 @@ collections:
         required: true
         fields: 
             - { name: workTitle, label: Title, widget: string, required: true }
+            - { name: genre, label: Genre, widget: list, required: true, multiple: true, allow_add: true }
             - name: "influenced"
               label: "Influenced"
               widget: "relation"
               collection: "creator"
+              required: false
               multiple: true
               searchFields: ["creator.firstName", "creator.lastName", "creator.group"]
               value: "creator.id"
@@ -39,10 +42,10 @@ collections:
               widget: "list"
               required: true
               fields:
-                  - { name: firstName, label: First Name, widget: string }
-                  - { name: lastName, label: Last Name, widget: string }
-                  - { name: group, label: Group, widget: string }
-                  - { name: role, label: Role, widget: string }
-                  - { name: id, label: ID, widget: uuid, prefix: creator, timestamp: true, hint: This widget generate an unique read-only id }
+                  - { name: firstName, label: First Name, widget: string, required: false }
+                  - { name: lastName, label: Last Name, widget: string, required: false }
+                  - { name: group, label: Group, widget: string, required: false }
+                  - { name: role, label: Role, widget: string, required: true }
+                  - { name: id, label: ID, widget: SimpleUUIDControl, prefix: creator, required: false }
                   - { name: primary, label: Primary, widget: boolean, default: true }
               
