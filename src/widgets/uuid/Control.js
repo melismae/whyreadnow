@@ -5,7 +5,7 @@ import React from 'react';
 export default class Control extends React.Component {
   static propTypes = {
     forID: PropTypes.string,
-    value: PropTypes.node,
+    value: PropTypes.string,
     classNameWrapper: PropTypes.string.isRequired,
   }
 
@@ -26,7 +26,7 @@ export default class Control extends React.Component {
       value,
       classNameWrapper,
     } = this.props;
-    console.log(this.props)
+
     return (
       <input
         type="text"

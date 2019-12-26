@@ -9,6 +9,7 @@ collections:
   - name: blog
     label: Blog
     folder: content/blog
+    identifier_field: title
     create: true
     fields:
       - { name: path, label: Path, required: true }
@@ -20,32 +21,58 @@ collections:
       - { name: image, label: Thumbnail, widget: image, required: false }
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: parentCategory, label: Parent Category, widget: select, required: true, options: ["Book", "Film", "Music", "Art", "Design", "Performance", "Article", "Game"], default: ["Book"] }
-      - { name: subCategory, label: Sub-category, widget: list, multiple: true, allow_add: true }
-      - name: "workDetails"
-        label: "Work Details"
-        widget: "list"
-        required: true
-        fields: 
-            - { name: workTitle, label: Title, widget: string, required: true }
-            - { name: genre, label: Genre, widget: list, required: true, multiple: true, allow_add: true }
-            - name: "influenced"
-              label: "Influenced"
-              widget: "relation"
-              collection: "creator"
-              required: false
-              multiple: true
-              searchFields: ["creator.firstName", "creator.lastName", "creator.group"]
-              value: "creator.id"
-              displayFields: ["creator.firstName", "creator.lastName", "creator.group"]
-            - name: "creator" 
-              label: "Creator"
-              widget: "list"
-              required: true
-              fields:
-                  - { name: firstName, label: First Name, widget: string, required: false }
-                  - { name: lastName, label: Last Name, widget: string, required: false }
-                  - { name: group, label: Group, widget: string, required: false }
-                  - { name: role, label: Role, widget: string, required: true }
-                  - { name: id, label: ID, widget: SimpleUUIDControl, prefix: creator, required: false }
-                  - { name: primary, label: Primary, widget: boolean, default: true }
+      - { name: subCategory, label: Sub-category, widget: list, multiple: true, allow_add: true } 
+      - { name: work, label: Work Title, widget: "relation", collection: "works", required: false, multiple: true, searchFields: ["works.workTitle"], valueField: "works.title" }
+      - { name: influenced, label: Influenced, widget: "relation", collection: "creators", required: false, multiple: true, searchFields: ["creators.firstName", "creators.lastName", "creators.group"], valueField: "creators.id" }
+
+  - name: works
+    label: Works
+    folder: content/metadata/works
+    create: true
+    identifier_field: title
+    fields:
+    - { name: title, label: Title, widget: string, required: true }
+    - { name: medium, label: Medium, widget: list, required: true, multiple: true }
+    - { name: genre, label: Genre, widget: list, required: true }
+    - { name: year, label: year, widget: string, required: false }
+    - { name: creator, label: Creator, widget: relation, multiple; true, collection: creators, searchFields: ["creators.firstName", "creators.lastName", "creators.group"], valueField: "creators.id", displayFields: ["creators.firstName", "creators.lastName", "creators.group"], required: false }
+  - name: "creators"
+    label: "Creators"
+    folder: content/metadata/creators
+    create: true
+    identifier_field: id
+    fields:
+    - { name: firstName, label: First Name, widget: string, required: false }
+    - { name: lastName, label: Last Name, widget: string, required: false }
+    - { name: group, label: Group, widget: string, required: false }
+    - { name: role, label: Role, widget: string, required: true }
+    - { name: id, label: ID, widget: SimpleUUIDControl, prefix: creator, required: false }
+    - { name: primary, label: Primary, widget: boolean, default: true }
+    - { name: work, label: Work Title, widget: "relation", collection: works, required: false, multiple: true, searchFields: ["works.title"], valueField: "works.title", displayFields: ["works.title"] }
+
+              
+  
+      #   fields: 
+      #       - { name: workTitle, label: Title, widget: string, required: true }
+      #       - { name: genre, label: Genre, widget: list, required: true, multiple: true, allow_add: true }
+      #       - name: "influenced"
+      #         label: "Influenced"
+      #         widget: "relation"
+      #         collection: "creator"
+      #         required: false
+      #         multiple: true
+      #         searchFields: ["creator.firstName", "creator.lastName", "creator.group"]
+      #         value: "creator.id"
+      #         displayFields: ["creator.firstName", "creator.lastName", "creator.group"]
+      #       - name: "creator" 
+      #         label: "Creator"
+      #         widget: "list"
+      #         required: true
+      #         fields:
+      #             - { name: firstName, label: First Name, widget: string, required: false }
+      #             - { name: lastName, label: Last Name, widget: string, required: false }
+      #             - { name: group, label: Group, widget: string, required: false }
+      #             - { name: role, label: Role, widget: string, required: true }
+      #             - { name: id, label: ID, widget: SimpleUUIDControl, prefix: creator, required: false }
+      #             - { name: primary, label: Primary, widget: boolean, default: true }
               
