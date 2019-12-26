@@ -13,19 +13,26 @@ export default class Control extends React.Component {
     value: '',
   }
 
+  componentDidMount() {
+    if (!this.props.value) {
+      this.uuid = uuidv4()
+      this.props.onChange(this.uuid)
+    }
+  }
+
   render() {
     const {
       forID,
       value,
       classNameWrapper,
     } = this.props;
-
+    console.log(this.props)
     return (
       <input
         type="text"
         className={classNameWrapper}
         id={forID} 
-        value={value || uuidv4()}
+        value={value || this.uuid}
         disabled
       />
     );
