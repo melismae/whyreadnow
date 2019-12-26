@@ -1,5 +1,6 @@
 ---
 path: test-path
+uuid: a5585751-0ef5-4656-a884-dcaba92a0360
 date: 2019-12-25T23:29:24.558Z
 title: Test post title
 description: Test post description
@@ -10,6 +11,7 @@ subCategory:
 workDetails:
   - creator:
       - firstName: Melissa
+        id: e3f25918-56fa-4a76-8710-bdee57cedec1
         lastName: Smith
         primary: true
         role: Author
