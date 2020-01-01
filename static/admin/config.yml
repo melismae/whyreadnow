@@ -9,13 +9,82 @@ collections:
   - name: blog
     label: Blog
     folder: content/blog
+    identifier_field: title
     create: true
     fields:
       - { name: path, label: Path, required: true }
+      - { name: uuid, label: UUID, widget: SimpleUUIDControl, required: false }
       - { name: date, label: Date, widget: date, required: true }
       - { name: title, label: Title, widget: string, required: true }
-      - { name: description, label: Description, widget: text, required: true }
+      - { name: description, label: Description, widget: markdown, required: true }
       - { name: body, label: Body, widget: markdown, required: true }
-      - { name: image, label: Thumbnail, widget: image, required: false }
+      - name: images
+        label: Images
+        widget: object
+        fields: 
+          - { name: thumbnail, label: Thumbnail, required: false, widget: image}
+          - { name: featured, label: Featured, required: false, widget: image}
+          - label: "Additional"
+            name: "additional"
+            widget: "list"
+            field: {label: Image, name: image, widget: image}
       - { name: tags, label: Tags, widget: list, required: false }
-      - { name: types, label: Types, widget: list, required: false }
+      - { name: parentCategory, label: Parent Category, widget: select, required: true, options: ["Book", "Film", "Music", "Art", "Design", "Performance", "Article", "Game"], default: ["Book"] }
+      - { name: subCategory, label: Sub-category, widget: list, multiple: true, allow_add: true } 
+      - { name: work, label: Work Title, widget: "relation", collection: "works", required: false, multiple: true, searchFields: ["title"], valueField: "title" }
+      - { name: influenced, label: Influenced, widget: "relation", collection: "creators", required: false, multiple: true, searchFields: ["name.first", "name.last", "name.group"], valueField: "id", displayFields: ["name.first", "name.last", "name.group"] }
+  - name: works
+    label: Works
+    folder: content/metadata/works
+    create: true
+    identifier_field: title
+    fields:
+    - { name: title, label: Title, widget: string, required: true }
+    - { name: medium, label: Medium, widget: list, required: true, multiple: true }
+    - { name: genre, label: Genre, widget: list, required: true }
+    - { name: year, label: year, widget: string, required: false }
+    - { name: creator, label: Creator, widget: relation, multiple; true, collection: creators, searchFields: ["name.first", "name.last", "name.group"], valueField: "id", displayFields: ["name.first", "name.last", "name.group"], required: false }
+  - name: "creators"
+    label: "Creators"
+    folder: content/metadata/creators
+    create: true
+    identifier_field: id
+    fields:
+      - name: "name"
+        label: Name, 
+        widget: "object"
+        fields: 
+          - { name: first, label: First Name, widget: string, required: false }
+          - { name: last, label: Last Name, widget: string, required: false }
+          - { name: group, label: Group, widget: string, required: false }
+      - { name: role, label: Role, widget: string, required: true }
+      - { name: id, label: ID, widget: SimpleUUIDControl, prefix: creator, required: false }
+      - { name: primary, label: Primary, widget: boolean, default: true }
+      - { name: work, label: Work Title, widget: relation, collection: works, required: false, multiple: true, searchFields: ["title"], valueField: "title", displayFields: ["title"] }
+
+              
+  
+      #   fields: 
+      #       - { name: workTitle, label: Title, widget: string, required: true }
+      #       - { name: genre, label: Genre, widget: list, required: true, multiple: true, allow_add: true }
+      #       - name: "influenced"
+      #         label: "Influenced"
+      #         widget: "relation"
+      #         collection: "creator"
+      #         required: false
+      #         multiple: true
+      #         searchFields: ["creator.firstName", "creator.lastName", "creator.group"]
+      #         value: "creator.id"
+      #         displayFields: ["creator.firstName", "creator.lastName", "creator.group"]
+      #       - name: "creator" 
+      #         label: "Creator"
+      #         widget: "list"
+      #         required: true
+      #         fields:
+      #             - { name: firstName, label: First Name, widget: string, required: false }
+      #             - { name: lastName, label: Last Name, widget: string, required: false }
+      #             - { name: group, label: Group, widget: string, required: false }
+      #             - { name: role, label: Role, widget: string, required: true }
+      #             - { name: id, label: ID, widget: SimpleUUIDControl, prefix: creator, required: false }
+      #             - { name: primary, label: Primary, widget: boolean, default: true }
+              
