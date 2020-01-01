@@ -1,5 +1,6 @@
 ---
 title: About
+template: "page"
 ---
 
 I hurt inside a little when people tell me they don't have time to read, usually with a slightly embarassed and apologetic tone. 
