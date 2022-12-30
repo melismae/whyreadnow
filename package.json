@@ -8,7 +8,7 @@
     "url": "https://github.com/melismae/whyreadnow/issues"
   },
   "dependencies": {
-    "gatsby": "^2.18.17",
+    "gatsby": "^2.32.13",
     "gatsby-cli": "^2.8.22",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-draft": "0.0.4",
